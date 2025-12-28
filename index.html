@@ -34,8 +34,8 @@ function fetchPrecip() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const times = data.hourly.time;
-            const precipData = data.hourly.precipitation;
+            const times = data[0].hourly.time;
+            const precipData = data[0].hourly.precipitation;
             
             // Extract precip for each corner per timeslot, find max
             const maxPrecip = times.map((time, i) => {
