@@ -34,9 +34,9 @@ function fetchPrecip() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // data.hourly is now an array of 4 objects (one per location)
-            const times = data.hourly[0].time;  // All locations share same times
-            const precipArrays = data.hourly[0].precipitation ? [] : data.hourly.map(loc => loc.precipitation);
+            // data is array of 4 location objects
+            const times = data[0].hourly.time;  // All locations share same times
+            const precipArrays = data.map(location => location.hourly.precipitation);
             
             // Find max precip across 4 corners for each timeslot
             const maxPrecip = times.map((time, i) => {
