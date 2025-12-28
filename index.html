@@ -29,7 +29,7 @@ function fetchPrecip() {
     const latList = corners.map(c => c.lat).join(',');
     const lonList = corners.map(c => c.lon).join(',');
 
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latList}&longitude=${lonList}&hourly=precipitation&timezone=Europe/Paris&forecast_days=3`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latList}&longitude=${lonList}&hourly=precipitation&timezone=Europe/Paris&start_date=2025-12-28&end_date=2025-12-28`;
 
     fetch(url)
         .then(response => response.json())
